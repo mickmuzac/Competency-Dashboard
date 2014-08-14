@@ -52,7 +52,7 @@
 				<Score>
 					<SingleValue>1</SingleValue>
 				</Score>
-				<Indicator id="points_less-than-2-out-of-5">
+				<Indicator id="points_less-than-3-out-of-5">
 					<Description>Beginner</Description>
 				</Indicator>
 			</PerformanceLevel>
@@ -61,7 +61,7 @@
 				<Score>
 					<SingleValue>3</SingleValue>
 				</Score>
-				<Indicator id="points_between-3-and-5-out-of-5">
+				<Indicator id="points_between-3-and-4-out-of-5">
 					<Description>Intermediate</Description>
 				</Indicator>
 			</PerformanceLevel>
@@ -70,7 +70,7 @@
 				<Score>
 					<SingleValue>5</SingleValue>
 				</Score>
-				<Indicator id="points-5-out-of-5">
+				<Indicator id="points_more-than-4-out-of-5">
 					<Description>Advanced</Description>
 				</Indicator>
 			</PerformanceLevel>
