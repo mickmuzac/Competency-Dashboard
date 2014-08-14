@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompetencyFramework xmlns="http://ns.medbiq.org/competencyframework/v1/" 
+					 xmlns:lom="http://ltsc.ieee.org/xsd/LOM" 
+					 xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" 
+					 xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+					 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					 xsi:schemaLocation="http://ns.medbiq.org/competencyframework/v1/ competencyframework.xsd http://ltsc.ieee.org/xsd/LOM http://ns.medbiq.org/lom/healthcarelom.xsd http://ns.medbiq.org/lom/extend/v1/ http://ns.medbiq.org/lom/healthcare/healthcaremetadata.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://adlnet.gov/Warrior_Athlete/competency-objects/v1/explain-warrior-athlete-ethos</lom:entry>
+			</lom:identifier>
+			<lom:title>
+				<lom:string language="en">Explain Warrior Athlete Ethos</lom:string>
+			</lom:title>
+			<lom:description>
+				<lom:string language="en">This is a child competency object of the parent framework "Demonstrate Warrior Athlete Ethos."</lom:string>
+			</lom:description>
+		</lom:general>
+		<lom:lifeCycle>
+			<lom:version>
+				<lom:string>1.0</lom:string>
+			</lom:version>
+			<lom:contribute>
+				<lom:entity>Advanced Distributed Learning</lom:entity>
+				<lom:role>
+					<lom:source>LOMv1.0</lom:source>
+					<lom:value>publisher</lom:value>
+				</lom:role>
+			</lom:contribute>
+		</lom:lifeCycle>
+		<lom:rights>
+			<lom:copyrightAndOtherRestrictions>
+				<lom:source>LOMv1.0</lom:source>
+				<lom:value>yes</lom:value>
+			</lom:copyrightAndOtherRestrictions>
+			<lom:description>
+				<lom:string language="en">Creative Commons Attribution 3.0 Unported license, http://creativecommons.org/licenses/by/3.0/</lom:string>
+			</lom:description>
+		</lom:rights>
+	</lom:lom>
+	<EffectiveDate>2013-11-19</EffectiveDate>
+</CompetencyFramework>

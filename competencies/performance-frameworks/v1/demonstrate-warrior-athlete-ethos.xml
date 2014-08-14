@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PerformanceFramework 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ns.medbiq.org/performanceframework/v1/performanceframework.xsd"
+	xmlns="http://ns.medbiq.org/performanceframework/v1/"
+	xmlns:lom="http://ltsc.ieee.org/xsd/LOM"
+	xmlns:cf="http://ns.medbiq.org/competencyframework/v1/"
+	xmlns:cobj="http://ns.medbiq.org/competencyobject/v1/"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://adlnet.gov/Warrior_Athlete/performance-frameworks/v1/demonstrate-warrior-athlete-ethos</lom:entry>
+				<!--defines where this performance framework is located + identifies the performance framework name in abbreviated form. Do not use a course or project name here.-->
+			</lom:identifier>
+			<lom:title>
+				<lom:string language="en">
+				ADL's performance thresholds for the competency stated as: "Demonstrate Warrior Athlete ethos"
+				</lom:string>
+			</lom:title>
+			<lom:description>
+				<lom:string language="en">This framework defines a specific component competency level in the Warrior Athlete informal learning experience. For this prototype, we are dealing with 2 levels of competency objects. This component competency performance level is binary; either you have the competency or you dont (this is based on pass/fail of the assessment associated with this competency). Five (5 total) component competencies all contribute to the performance level for the higher level competency. For the latter, there are three levels: Advanced (highest), Intermediate (middle), Beginner (lowest).</lom:string>
+			</lom:description>
+		</lom:general>
+	</lom:lom>
+	<SupportingInformation>
+		<Reference>
+			<rdf:Description rdf:about="act:adlnet.gov/Warrior_Athlete/competency-objects/v1/demonstrate-soldier-athlete-ethos"/><!--This string is what the xAPI statements must have as either object ID or context-activity ID-->
+			<dcterms:format>text/html</dcterms:format>
+		</Reference>
+	</SupportingInformation>
+	<PerformanceScale id="levels">
+		<LeastCompetent>0</LeastCompetent>
+		<MostCompetent>5</MostCompetent>
+	</PerformanceScale>
+	<Component id="competency_levels">
+		<Title>Your level of competency as a warrior athlete</Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-frameworks/v1/demonstrate-warrior-athlete-ethos"/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>level of competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>1</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-5">
+					<Description>Beginner</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>3</SingleValue>
+				</Score>
+				<Indicator id="points_between-3-and-5-out-of-5">
+					<Description>Intermediate</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>3</DisplayOrder>
+				<Score>
+					<SingleValue>5</SingleValue>
+				</Score>
+				<Indicator id="points-5-out-of-5">
+					<Description>Advanced</Description>
+				</Indicator>
+			</PerformanceLevel>
+			
+		</PerformanceLevelSet>
+	</Component>
+	<Component id="component_competency">
+		<Title>Your competency in explaining Soldier Athlete ethos</Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-objects/v1/explain-warrior-athlete-ethos"/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>Competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>0</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-2">
+					<Description>Not competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Indicator id="points_2-out-of-2">
+					<Description>Competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+</Component>
+	<Component id="component_competency">
+		<Title>Your competency in creating an actionable mobility physical readiness training plan </Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-objects/v1/create-actionable-mobility-physical-readiness-training-plan "/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>Competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>0</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-2">
+					<Description>Not competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Indicator id="points_2-out-of-2">
+					<Description>Competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+</Component>
+	<Component id="component_competency">
+		<Title>Your competency in creating an actionable strength physical readiness training plan</Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-objects/v1/create-actionable-strength-physical-readiness-training-plan"/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>Competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>0</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-2">
+					<Description>Not competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Indicator id="points_2-out-of-2">
+					<Description>Competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+</Component>
+	<Component id="component_competency">
+		<Title>Your competency in creating an actionable endurance physical readiness training plan</Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-objects/v1/create-actionable-endurance-physical-readiness-training-plan"/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>Competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>0</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-2">
+					<Description>Not competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Indicator id="points_2-out-of-2">
+					<Description>Competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+</Component>
+	<Component id="component_competency">
+		<Title>Your competency in explaining principles of nutrition related to warrior athlete ethos</Title>
+		<Competency>
+			<Reference>
+				<rdf:Description rdf:about="http://adlnet.gov/Warrior_Athlete/competency-objects/v1/Explain-principles-of-nutrition-related-to-warrior-athlete-ethos"/>
+				<rdf:Type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>Competence</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>0</SingleValue>
+				</Score>
+				<Indicator id="points_less-than-2-out-of-2">
+					<Description>Not competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Indicator id="points_2-out-of-2">
+					<Description>Competent</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+</Component>
+</PerformanceFramework>
