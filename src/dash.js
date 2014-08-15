@@ -1,23 +1,52 @@
 "use strict";
 
-console.log("Testing!");
-
+var userScores = localStorage.userScores ? JSON.parse(localStorage.userScores) : null;
 
 $.ajax({
-
 	type: 'GET',
 	dataType: 'xml',
 	url: 'competencies/performance-frameworks/v1/demonstrate-warrior-athlete-ethos.xml',
 	success: function(data){
 	
-		console.log(data);
-		parsePerformanceFramework(data);
+		var performance = parsePerformanceFramework(data);
+		generateTestData(performance);
+		performance.handleScore = handleScore;
+		ko.applyBindings(performance);
+		
+		console.log(performance);
+		console.log(userScores);
 	},
 	error: function(err, status, mess){
-	
-		console.log("ERROR!!", err, status, mess);
+		console.error("ERROR!!", err, status, mess);
 	}
 });
+
+function handleScore(perf, index){
+	console.log(perf, index);
+	
+	var score = userScores[index], str = "This is where you are!";
+	if(perf.include == "both" && perf.min <= score && score <= perf.max){
+		return str;
+	}
+	else if(perf.include == "min" && perf.min <= score && score < perf.max){
+		return str;
+	}
+	else if(perf.include == "max" && perf.min < score && score <= perf.max){
+		return str;
+	}
+
+	return "";
+}
+
+function generateTestData(perfObj){
+	if(!userScores){
+		userScores = [];
+		for(var i = 0; i < perfObj.Component.length; i++){
+			userScores.push(Math.round(Math.random() * perfObj.Component[i].PerformanceLevelSet.total));
+		}
+		localStorage.userScores = JSON.stringify(userScores);
+	}
+}
 
 function parsePerformanceFramework(xml){
 
@@ -33,16 +62,16 @@ function parsePerformanceFramework(xml){
 	}
 	
 	for(var i = 0; i < outObj.Component.length; i++){
-		//console.log(outObj.Component[i]);
 		var performanceLevelArr = outObj.Component[i].PerformanceLevelSet.PerformanceLevel;
+		
 		for(var g = 0; g < performanceLevelArr.length; g++){
-			parsePerformanceStr(performanceLevelArr[g])
-			console.log(performanceLevelArr[g]);
+			parsePerformanceStr(performanceLevelArr[g]);
 		}
+		
+		outObj.Component[i].PerformanceLevelSet.total = performanceLevelArr[0].total;
 	}
 	
-	
-	
+	return outObj;
 }
 
 function parsePerformanceStr(perfObj){

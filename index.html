@@ -11,6 +11,15 @@
 <body>
 	<div class="content">
 		<h2>Your Dashboard</h2>
+		<div data-bind="foreach: Component">
+			<h4 data-bind="text:Title"></h4>		
+			<div data-bind="foreach: PerformanceLevelSet.PerformanceLevel">
+				<p data-bind="text: Indicator.Description"></p>
+				<span data-bind="text: include"></span> included: <span data-bind="text: min + '-' + max"></span>
+				
+				<div data-bind="html: $root.handleScore($data, $parentContext.$index())"></div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
