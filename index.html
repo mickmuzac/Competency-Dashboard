@@ -2,19 +2,30 @@
 <html>
 
 <head>
+	<!-- Dependencies -->
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="lib/knockout-3.1.0.js"></script>
 	<script src="lib/xml2json.js"></script>
+	<script src="lib/Chart.min.js"></script>
+	
 	<script type="text/javascript" src="src/dash.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+	<div>
+		<canvas id="myChart" width="300" height="300"></canvas>
+		<div id="legend"></div>
+	</div>
 	<div class="content">
 		<h2>Your Dashboard</h2>
 		<div data-bind="foreach: Component">
 			<h4 data-bind="text:Title"></h4>		
 			<div data-bind="foreach: PerformanceLevelSet.PerformanceLevel">
-				<p data-bind="text: Indicator.Description"></p>
+				<p>
+					<span data-bind="text: Indicator.Description"></span><br/>
+					<img src="img/question.png"/>
+				</p>
+				
 				<span data-bind="text: include"></span> included: <span data-bind="text: min + '-' + max"></span>
 				
 				<div data-bind="html: $root.handleScore($data, $parentContext.$index())"></div>

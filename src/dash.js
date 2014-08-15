@@ -1,6 +1,7 @@
 "use strict";
 
 var userScores = localStorage.userScores ? JSON.parse(localStorage.userScores) : null;
+var perf;
 
 $.ajax({
 	type: 'GET',
@@ -8,12 +9,14 @@ $.ajax({
 	url: 'competencies/performance-frameworks/v1/demonstrate-warrior-athlete-ethos.xml',
 	success: function(data){
 	
-		var performance = parsePerformanceFramework(data);
-		generateTestData(performance);
-		performance.handleScore = handleScore;
-		ko.applyBindings(performance);
+		perf = parsePerformanceFramework(data);
+		generateTestData();
+		drawChart();
 		
-		console.log(performance);
+		perf.handleScore = handleScore;
+		ko.applyBindings(perf);
+		
+		console.log(perf);
 		console.log(userScores);
 	},
 	error: function(err, status, mess){
@@ -21,28 +24,51 @@ $.ajax({
 	}
 });
 
-function handleScore(perf, index){
-	console.log(perf, index);
+function drawChart(){
+	var sum = userScores.reduce(function(a, b){ return a + b});
+	var sumRemaining = perf.Component.reduce(function(a, b){ return (a>0?a:a.PerformanceLevelSet.total) + (b>0?b:b.PerformanceLevelSet.total)}) - sum;
+	var options = {percentageInnerCutout: 45, segmentStrokeColor : sumRemaining > 0 ? "#FFF" : "#FDB45C"};
+	
+	var data = [
+		{
+			value: sumRemaining,
+			color: "#46BFBD",
+			highlight: "#5AD3D1",
+			label: "Score Remaining"
+		},		
+		{
+			value: sum,
+			color:"#FDB45C",
+			highlight: "#FFC870",
+			label: "Your Total Score"
+		}, 
+	];
+	var chart = new Chart(document.getElementById('myChart').getContext('2d')).Doughnut(data, options);
+	$("#legend").html(chart.generateLegend());
+}
+
+function handleScore(single, index){
+	//console.log(single, index);
 	
 	var score = userScores[index], str = "This is where you are!";
-	if(perf.include == "both" && perf.min <= score && score <= perf.max){
+	if(single.include == "both" && single.min <= score && score <= single.max){
 		return str;
 	}
-	else if(perf.include == "min" && perf.min <= score && score < perf.max){
+	else if(single.include == "min" && single.min <= score && score < single.max){
 		return str;
 	}
-	else if(perf.include == "max" && perf.min < score && score <= perf.max){
+	else if(single.include == "max" && single.min < score && score <= single.max){
 		return str;
 	}
 
 	return "";
 }
 
-function generateTestData(perfObj){
+function generateTestData(){
 	if(!userScores){
 		userScores = [];
-		for(var i = 0; i < perfObj.Component.length; i++){
-			userScores.push(Math.round(Math.random() * perfObj.Component[i].PerformanceLevelSet.total));
+		for(var i = 0; i < perf.Component.length; i++){
+			userScores.push(Math.round(Math.random() * perf.Component[i].PerformanceLevelSet.total));
 		}
 		localStorage.userScores = JSON.stringify(userScores);
 	}
