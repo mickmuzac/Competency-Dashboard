@@ -2,8 +2,15 @@
 (function(window, $){
 	var userScores = localStorage.userScores ? JSON.parse(localStorage.userScores) : null;
 	var perf;
-	var colors = {gray:["rgba(220,220,220,0.5)", "rgba(220,220,220,1)"], blue:["rgba(151,187,205,0.5)", "rgba(151,187,205,1)"], purple:["rgba(201, 198, 229, 0.5)", "rgba(201, 198, 229, 1)"], green:["rgba(151, 205, 158, 0.5)","rgba(151, 205, 158, 1)"]};
-	var extraColorKeys = ["purple", "green"];
+	var colors = {
+		gray:["rgba(220,220,220,0.5)", "rgba(220,220,220,1)"], 
+		blue:["rgba(151,187,205,0.5)", "rgba(151,187,205,1)"], 
+		purple:["rgba(201, 198, 229, 0.5)", "rgba(201, 198, 229, 1)"], 
+		green:["rgba(151, 205, 158, 0.5)","rgba(151, 205, 158, 1)"],
+		gold:["rgba(237, 235, 65, 0.5)", "rgba(207, 205, 65, 1)"],
+		red: ["rgba(237, 65, 65, 0.5)", "#DB7D7D"]
+	};
+	var extraColorKeys = ["red", "blue"];
 	
 	$.ajax({
 		type: 'GET',
@@ -55,28 +62,31 @@
 	
 	function drawHorizontalBar(){
 		for(var i = 0; i < perf.Component.length; i++){
-			var data = {labels: [""], datasets: []};
+		
+			userScores[i] = 1;
+		
+			var data = {labels: ["Performance Levels","You"], datasets: []};
 			var perfLevel = perf.Component[i].PerformanceLevelSet;
 			var totalDiff = userScores[i];
+			
 
 			data.datasets.push({
-				fillColor : colors.blue[0],
-				strokeColor : colors.blue[1],
-				data: [userScores[i]],
+				fillColor : colors.gray[0],
+				strokeColor : colors.gray[1],
+				data: [0,userScores[i]],
 				title: "Current"
 			});
 			
 			for(var g = 0; g < perfLevel.PerformanceLevel.length-1; g++){
+				if(!Array.isArray(perfLevel.PerformanceLevel[g].include.match(/both|max/))){
+					perfLevel.PerformanceLevel[g].max--;
+				}
 				if(userScores[i] < perfLevel.PerformanceLevel[g].max){
-					if(!Array.isArray(perfLevel.PerformanceLevel[g].include.match(/both|max/))){
-						perfLevel.PerformanceLevel[g].max--;
-					}
-					
 					data.datasets.push({
 						fillColor : colors[extraColorKeys[g]][0],
 						strokeColor : colors[extraColorKeys[g]][1],
 						data: [perfLevel.PerformanceLevel[g].max-totalDiff],
-						title: "Current"
+						title: perfLevel.PerformanceLevel[g].Indicator.Description,
 					});
 					
 					totalDiff = perfLevel.PerformanceLevel[g].max;
@@ -84,13 +94,18 @@
 			}
 			
 			data.datasets.push({
-			    fillColor : colors.gray[0],
-				strokeColor : colors.gray[1],
+			    fillColor : colors.gold[0],
+				strokeColor : colors.gold[1],
 				data: [perfLevel.total-totalDiff],
 				title: "Goal"
 			});
 
-			var chart = new ChartNew(document.getElementById('canvas' + i).getContext('2d')).HorizontalStackedBar(data, {graphMin: 0});
+			var options = {
+				annotateLabel: "<%=(v1 == '' ? '' : v1) + (v1!='' && v2 !='' ? ' - ' : '')+(v2 == '' ? '' : v2)+(v1!='' || v2 !='' ? ':' : '') + v3 %>",
+				graphMin: 0,
+				annotateDisplay: true				
+			};
+			var chart = new ChartNew(document.getElementById('canvas' + i).getContext('2d')).HorizontalStackedBar(data, options);
 		}
 	}
 
