@@ -7,6 +7,7 @@
 	<script src="lib/knockout-3.1.0.js"></script>
 	<script src="lib/xml2json.js"></script>
 	<script src="lib/Chart.min.js"></script>
+	<script src="lib/ChartNew.js"></script>
 	
 	<script type="text/javascript" src="src/dash.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -28,8 +29,10 @@
 				
 				<span data-bind="text: include"></span> included: <span data-bind="text: min + '-' + max"></span>
 				
+				
 				<div data-bind="html: $root.handleScore($data, $parentContext.$index())"></div>
 			</div>
+				<canvas data-bind="attr:{id: 'canvas' + $index()}"></canvas>
 		</div>
 	</div>
 </body>
