@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompetencyFramework xmlns="http://ns.medbiq.org/competencyframework/v1/" 
+					 xmlns:lom="http://ltsc.ieee.org/xsd/LOM" 
+					 xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" 
+					 xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+					 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					 xsi:schemaLocation="http://ns.medbiq.org/competencyframework/v1/competencyframework.xsd http://ltsc.ieee.org/xsd/LOM http://ns.medbiq.org/lom/healthcarelom.xsd http://ns.medbiq.org/lom/extend/v1/ http://ns.medbiq.org/lom/healthcare/healthcaremetadata.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://adlnet.gov/warrior_athlete/competency-frameworks/v1/demonstrate-warrior-athlete-ethos</lom:entry>
+				<!--defines URI where this competency definition is located + identifies the competency itself (possibly in abbreviated form, otherwise matched verbatim to the file name). Do not use a course or project name here.-->
+			</lom:identifier>
+			<lom:title>
+				<lom:string language="en">Demonstrate Warrior Athlete ethos</lom:string>
+			</lom:title>
+			<lom:description>
+				<lom:string language="en">This is the level 1 competency for the Warrior Athlete prototype v.1 informal learning experience. It maps directly to the Instructional Goal. For more details on the instructional design of this prototype, see https://docs.google.com/a/adlnet.gov/document/d/1bXh78JOB2Zj4gEq66taHGQEGy6nI7kBojFIaCtEKRMA/edit</lom:string>
+			</lom:description>
+		</lom:general>
+		<lom:lifeCycle>
+			<lom:version>
+				<lom:string>1.0</lom:string>
+			</lom:version>
+			<lom:contribute>
+				<lom:entity>Advanced Distributed Learning</lom:entity>
+				<lom:role>
+					<lom:source>LOMv1.0</lom:source>
+					<lom:value>publisher</lom:value>
+				</lom:role>
+			</lom:contribute>
+		</lom:lifeCycle>
+		<lom:rights>
+			<lom:copyrightAndOtherRestrictions>
+				<lom:source>LOMv1.0</lom:source>
+				<lom:value>yes</lom:value>
+			</lom:copyrightAndOtherRestrictions>
+			<lom:description>
+				<lom:string language="en">Creative Commons Attribution 3.0 Unported license, http://creativecommons.org/licenses/by/3.0/</lom:string>
+			</lom:description>
+		</lom:rights>
+	</lom:lom>
+	<EffectiveDate>2013-11-19</EffectiveDate>
+	<SupportingInformation>
+		<xhtml:div>
+			<xhtml:p>The following is the full competency framework in outline form.</xhtml:p>
+			<xhtml:p>Demonstrate soldier athlete ethos</xhtml:p>
+			<xhtml:ol>
+				  <xhtml:li>
+					<xhtml:p>Explain Warrior Athlete ethos</xhtml:p>
+				  </xhtml:li>
+				  <xhtml:li>
+					<xhtml:p>Create actionable mobility Physical Readiness Training Plan</xhtml:p>
+				  </xhtml:li>
+				  <xhtml:li>
+					<xhtml:p>Create actionable strength Physical Readiness Training Plan</xhtml:p>
+				  </xhtml:li>
+				  <xhtml:li>
+					<xhtml:p>Create actionable endurance Physical Readiness Training Plan</xhtml:p>
+				  </xhtml:li>
+				  <xhtml:li>
+					<xhtml:p>Explain principles of nutrition related to Warrior Athlete ethos</xhtml:p>
+				  </xhtml:li>
+			</xhtml:ol>
+		</xhtml:div>
+	</SupportingInformation>
+	<Includes>
+	<!--In this section do not use URIs that attempt to represent the competency levels with parent-child strings. It is more flexible to keep them all at the same level. That allows more interoperability for competencies. For example, "Create a Python variable with accompanying parameters" is a competency that applies to programming in many programming languages, not just Python. This competency could be reused (if "Python" was taken out) for those contexts, but not if it is a child object of "adlnet.gov/competency-framework/v1/create-edit-pYthon-competency-framework". Also, there is no particular reason to assign hierarchical folder levels to them in the resident file directory. Putting them all at the same level provides flexibility in changing their hierarchy order later. The hierarchy is defined above in the <SupportingInformation> tag if anyone wants to see that. The <lom:description> field does allow the option of describing the hierarchy also (not used for that in this file). What you see in the items below is anything that is a child object of the competency defined in the file you are currently looking at. Other than what is described in the <SupportingInformation> or <lom:description> tags, you cannot tell unless you go into one of those files whether it is a leaf node ("competency object") or parent of other nodes ("competency framework").-->
+		<Catalog>URI</Catalog>
+		<Entry>http://adlnet.gov/competency-frameworks/v1/explain-warrior-athlete-ethos</Entry>
+		<Entry>http://adlnet.gov/competency-frameworks/v1/create-actionable-mobility-physical-readiness-training-plan</Entry>
+		<Entry>http://adlnet.gov/competency-frameworks/v1/create-actionable-strength-physical-readiness-training-plan</Entry>
+		<Entry>http://adlnet.gov/competency-frameworks/v1/create-actionable-endurance-physical-readiness-training-plan</Entry>
+		<Entry>http://adlnet.gov/competency-frameworks/v1/explain-principles-of-nutrition-related-to-warrior-athlete-ethos</Entry>
+	</Includes>
+</CompetencyFramework>
