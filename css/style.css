@@ -25,22 +25,21 @@ canvas{
 	width: 100%;
 }
 .components{
-	width: 100%;
+	width: 60%;
 }
 .components canvas{
-	width: 50%;
-	height: 20%;
 	float:left;
 }
 .component_inner{
 	width: 100%;
 	clear: both;
-	margin: 10px 0 50px 0;
+	margin: 30px 0 100px 0;
 	float: left;
 }
 .performanceLevel{
-	float: right;
-	width: 50%;
+	float: left;
+	margin-left: 130px;
+	width: 10%;
 }
 .doughnut-legend {
   list-style: none;

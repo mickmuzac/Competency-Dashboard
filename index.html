@@ -7,6 +7,7 @@
 	<script src="lib/xml2json.js"></script>
 	<script src="lib/Chart.min.js"></script>
 	<script src="lib/ChartNew.js"></script>
+	<script src="lib/xapicollection.min.js"></script>
 	
 	<script type="text/javascript" src="src/dash.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -27,7 +28,7 @@
 				<div class="performanceLevel" data-bind="foreach: PerformanceLevelSet.PerformanceLevel">
 					<div data-bind="if:$root.isCurrentScore($data, $parentContext.$index())">
 						<p>
-							<span data-bind="text: Indicator.Description"></span><br/>
+							<span data-bind="text: Indicator.Description"></span><br/><br/>
 							<img data-bind="attr:{src: $root.getImgURL($data)}" />
 						</p>
 					</div>
