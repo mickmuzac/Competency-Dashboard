@@ -1,7 +1,7 @@
 Competency-Dashboard
 ====================
 
-Click [here](http://mickmuzac.github.io/Competency-Dashboard/) to view a live demo of this project.
+Click [here](http://mickmuzac.github.io/Competency-Dashboard/) to view a live demo of this project. The generated test data persists in localStorage. To reset it, click the reset link at the top right of the page.
 
 ####Introduction
 The Competency Dashboard currently displays visualizations related to progress towards a set of competencies and the temporary (made up) badges that go along with them. However, this project primarily serves as a functional mockup for future development and just about everything will probably change.
