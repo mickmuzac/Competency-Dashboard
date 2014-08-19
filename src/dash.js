@@ -34,6 +34,7 @@
 			
 			perf.getImgURL = getImgURL;
 			perf.isCurrentScore = isCurrentScore;
+			perf.reset = reset;
 			ko.applyBindings(perf);
 			
 			var collection = (new ADL.Collection(tempArr)).groupBy('Indicator.Description');
@@ -41,20 +42,25 @@
 			drawHorizontalBar();
 			drawChart(collection);
 
-			console.log(perf);
-			console.log(userScores);
+			console.log("Medbiquitous performance framework (JS): ", perf);
+			console.log("Generated test data: ", userScores);
 		},
 		error: function(err, status, mess){
 			console.error("ERROR!!", err, status, mess);
 		}
 	});
+	
+	function reset(){
+		localStorage.clear();
+		location.reload();
+		
+		return false;
+	}
 
 	function drawChart(collection){
 		var sum = userScores.reduce(function(a, b){ return a + b});
 		var sumRemaining = perf.Component.reduce(function(a, b){ return (a>0?a:a.PerformanceLevelSet.total) + (b>0?b:b.PerformanceLevelSet.total)}) - sum;
 		var options = {percentageInnerCutout: 45, segmentStrokeColor : sumRemaining > 0 ? "#FFF" : "#FDB45C"};
-		
-		//Copy userScores so we don't mutate the original values
 		var data = [];
 		
 		data.push({
@@ -181,7 +187,6 @@
 	}		
 	
 	function getImgURL(single){
-		return "";
 		var lower = single.Indicator.Description.toLowerCase(), 
 			lowerMatch = lower.match(/advanced|intermediate|beginner/),
 			prefix = "img/";
@@ -198,7 +203,6 @@
 		else return prefix + "question.png";
 	}
 	
-
 	function generateTestData(){
 		if(!userScores){
 			userScores = [];
@@ -212,9 +216,6 @@
 	}
 
 	function parsePerformanceFramework(xml){
-
-		var jXML = $(xml);
-		
 		var outObj;
 		try{
 			outObj = JSON.parse(xml2json(xml).replace("undefined", "")).PerformanceFramework;
