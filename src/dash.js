@@ -8,9 +8,10 @@
 		purple:["rgba(201, 198, 229, 0.5)", "rgba(201, 198, 229, 1)"], 
 		green:["rgba(151, 205, 158, 0.5)","rgba(151, 205, 158, 1)"],
 		gold:["rgba(237, 235, 65, 0.5)", "rgba(207, 205, 65, 1)"],
-		red: ["rgba(237, 65, 65, 0.5)", "#DB7D7D"]
+		red: ["rgba(237, 65, 65, 0.5)", "#DB7D7D"],
+		darkgray: ["rgba(190, 190, 190, 0.5)","#ccc"]
 	};
-	var extraColorKeys = ["red", "blue"];
+	var extraColorKeys = ["green", "blue"];
 	
 	$.ajax({
 		type: 'GET',
@@ -22,7 +23,8 @@
 			generateTestData();
 			drawChart();
 			
-			perf.handleScore = handleScore;
+			perf.getImgURL = getImgURL;
+			perf.isCurrentScore = isCurrentScore;
 			//perf.drawHorizontalBar = drawHorizontalBar;
 			ko.applyBindings(perf);
 			
@@ -63,16 +65,14 @@
 	function drawHorizontalBar(){
 		for(var i = 0; i < perf.Component.length; i++){
 		
-			userScores[i] = 1;
-		
 			var data = {labels: ["Performance Levels","You"], datasets: []};
 			var perfLevel = perf.Component[i].PerformanceLevelSet;
-			var totalDiff = userScores[i];
+			var totalDiff = 0;
 			
 
 			data.datasets.push({
-				fillColor : colors.gray[0],
-				strokeColor : colors.gray[1],
+				fillColor : colors.darkgray[0],
+				strokeColor : colors.darkgray[1],
 				data: [0,userScores[i]],
 				title: "Current"
 			});
@@ -81,50 +81,66 @@
 				if(!Array.isArray(perfLevel.PerformanceLevel[g].include.match(/both|max/))){
 					perfLevel.PerformanceLevel[g].max--;
 				}
-				if(userScores[i] < perfLevel.PerformanceLevel[g].max){
-					data.datasets.push({
-						fillColor : colors[extraColorKeys[g]][0],
-						strokeColor : colors[extraColorKeys[g]][1],
-						data: [perfLevel.PerformanceLevel[g].max-totalDiff],
-						title: perfLevel.PerformanceLevel[g].Indicator.Description,
-					});
-					
-					totalDiff = perfLevel.PerformanceLevel[g].max;
-				}
+				var color = perfLevel.PerformanceLevel[g].Indicator.Description.toLowerCase() == "not competent" ? colors.gray : colors[extraColorKeys[g]];
+				data.datasets.push({
+					fillColor : color[0],
+					strokeColor : color[1],
+					data: [perfLevel.PerformanceLevel[g].max-totalDiff],
+					title: perfLevel.PerformanceLevel[g].Indicator.Description,
+				});
+				
+				totalDiff = perfLevel.PerformanceLevel[g].max;
 			}
 			
 			data.datasets.push({
 			    fillColor : colors.gold[0],
 				strokeColor : colors.gold[1],
 				data: [perfLevel.total-totalDiff],
-				title: "Goal"
+				title: perfLevel.PerformanceLevel[g].Indicator.Description
 			});
 
 			var options = {
-				annotateLabel: "<%=(v1 == '' ? '' : v1) + (v1!='' && v2 !='' ? ' - ' : '')+(v2 == '' ? '' : v2)+(v1!='' || v2 !='' ? ':' : '') + v3 %>",
+				annotateLabel: "<%=(v1 == '' ? '' : v1) %>",
 				graphMin: 0,
 				annotateDisplay: true				
 			};
 			var chart = new ChartNew(document.getElementById('canvas' + i).getContext('2d')).HorizontalStackedBar(data, options);
 		}
 	}
+	
+	function isCurrentScore(single, index){
 
-	function handleScore(single, index){
-		//console.log(single, index);
-		
-		var score = userScores[index], str = "This is where you are!";
+		var score = userScores[index];
 		if(single.include == "both" && single.min <= score && score <= single.max){
-			return str;
+			return true;
 		}
 		else if(single.include == "min" && single.min <= score && score < single.max){
-			return str;
+			return true;
 		}
 		else if(single.include == "max" && single.min < score && score <= single.max){
-			return str;
+			return true;
 		}
 
-		return "";
+		return false;
+	}		
+	
+	function getImgURL(single){
+		var lower = single.Indicator.Description.toLowerCase(), 
+			lowerMatch = lower.match(/advanced|intermediate|beginner/),
+			prefix = "img/";
+		
+		if(Array.isArray(lowerMatch)){
+			return prefix + lowerMatch[0] + ".png";
+		}
+		else if(lower == "competent"){
+			return prefix + "advanced.png";
+		}
+		else if(lower == "not competent"){
+			return prefix + "none.png";
+		}
+		else return prefix + "question.png";
 	}
+	
 
 	function generateTestData(){
 		if(!userScores){

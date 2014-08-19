@@ -4,16 +4,44 @@ html, body{
 
 h1, h2, h3{
 	color: #292929;
+	width: 100%;
+	clear: both;
 }
 canvas{
 	float:left;
+}
+
+/* Overview div. Pie charts, main header */
+.overview{
+	width: 100%;
+	clear:both;
+}
+.overview h2{
+	text-align: center;
 }
 
 .content{
 	text-align: center;
 	width: 100%;
 }
-
+.components{
+	width: 100%;
+}
+.components canvas{
+	width: 50%;
+	height: 20%;
+	float:left;
+}
+.component_inner{
+	width: 100%;
+	clear: both;
+	margin: 10px 0 50px 0;
+	float: left;
+}
+.performanceLevel{
+	float: right;
+	width: 50%;
+}
 .doughnut-legend {
   list-style: none;
   float: left;
