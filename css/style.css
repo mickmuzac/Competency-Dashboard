@@ -11,6 +11,10 @@ canvas{
 	float:left;
 }
 
+.reset{
+	float: right;
+}
+
 /* Overview div. Pie charts, main header */
 .overview{
 	width: 100%;

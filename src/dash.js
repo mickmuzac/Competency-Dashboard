@@ -34,6 +34,7 @@
 			
 			perf.getImgURL = getImgURL;
 			perf.isCurrentScore = isCurrentScore;
+			perf.reset = reset;
 			ko.applyBindings(perf);
 			
 			var collection = (new ADL.Collection(tempArr)).groupBy('Indicator.Description');
@@ -48,6 +49,13 @@
 			console.error("ERROR!!", err, status, mess);
 		}
 	});
+	
+	function reset(){
+		localStorage.clear();
+		location.reload();
+		
+		return false;
+	}
 
 	function drawChart(collection){
 		var sum = userScores.reduce(function(a, b){ return a + b});
