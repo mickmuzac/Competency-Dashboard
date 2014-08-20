@@ -80,13 +80,15 @@
 					totalCount += item._pointValue;
 				}
 			}
-
-			data.push({
-				value: totalCount,
-				color: colors[extraColorKeys[i]][0],
-				highlight: colors[extraColorKeys[i]][1],
-				label: collection.contents[i].group
-			});	
+			
+			if(totalCount > 0){
+				data.push({
+					value: totalCount,
+					color: colors[extraColorKeys[i]][0],
+					highlight: colors[extraColorKeys[i]][1],
+					label: collection.contents[i].group
+				});	
+			}
 		}
 		
 		var chart = new Chart(document.getElementById('myChart').getContext('2d')).Doughnut(data, options);
@@ -134,6 +136,7 @@
 				data: [perfLevel.total-totalDiff],
 				title: perfLevel.PerformanceLevel[g].Indicator.Description
 			});
+
 			handlePieChartInfo(perfLevel.PerformanceLevel[g], i);
 
 			var options = {
