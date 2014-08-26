@@ -18,7 +18,7 @@
 	$.ajax({
 		type: 'GET',
 		dataType: 'xml',
-		url: 'competencies/performance-frameworks/v1/demonstrate-warrior-athlete-ethos.xml',
+		url: 'http://ec2-54-88-206-34.compute-1.amazonaws.com/data/uploads/competencies/v1/performance-demonstrate-warrior-athlete-ethos.xml',
 		success: function(data){
 		
 			perf = parsePerformanceFramework(data);
