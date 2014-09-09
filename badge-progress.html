@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+
+			div.badge {
+				width: 100px;
+				height: 100px;
+
+				box-shadow: 1px 1px 3px;
+				border-radius: 5px;
+				/*background-image: linear-gradient( 0deg, darkred, darkred 35%, white 35%, white);*/
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			div.badge > span {
+				color: white;
+				font-weight: bold;
+				text-shadow: black 0px 0px 5px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class='badge' bg-hint='darkred'>
+			<span>Mobility</span>
+		</div>
+		<script>
+			var elems = document.querySelectorAll('.badge');
+			console.log(elems);
+			for(var i=0; i<elems.length; i++)
+			{
+				var bgColor = elems[i].getAttribute('bg-hint');
+				console.log(bgColor);
+				elems[i].style.backgroundImage = 'linear-gradient( 0deg, '+bgColor+', '+bgColor+' 35%, transparent 35%, transparent';
+			}
+		</script>
+	</body>
+</html>
