@@ -1,0 +1,43 @@
+html {
+	display: flex;
+}
+
+.cell {
+	box-shadow: 1px 1px 3px;
+	border-radius: 5px;
+}
+
+div.progress {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px;
+}
+
+div.progress > div {
+	margin: 10px;
+}
+
+div.badge {
+	width: 100px;
+	height: 100px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.badge-placeholder {
+	width: 100px;
+	height: 100px;
+}
+
+img {
+	height: 90%;
+}
+
+span {
+	color: white;
+	font-weight: bold;
+	text-shadow: black 0px 0px 5px;
+}
