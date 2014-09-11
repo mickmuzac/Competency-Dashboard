@@ -11,25 +11,16 @@ div.progress {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 10px;
-}
-
-div.progress > div {
-	margin: 10px;
 }
 
 div.badge {
 	width: 100px;
-	height: 100px;
+	height: 70px;
+	margin: 10px;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-div.badge-placeholder {
-	width: 100px;
-	height: 100px;
 }
 
 img {

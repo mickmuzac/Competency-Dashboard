@@ -7,11 +7,11 @@
 	</head>
 	<body ng-app='badge-progress'>
 
-		<div class='progress cell' ng-controller='BadgeCtrl' ng-style='genGradient(color)' ng-click='randomizeValue($event)'>
-			<div class='badge cell' ng-repeat='i in children', ng-controller='BadgeCtrl' ng-style='genGradient(i.color)' ng-click='randomizeValue($event)'>
+		<div class='progress cell' ng-controller='BadgeCtrl' ng-style='genGradient({color:color,progress:progress})'>
+			<div class='badge cell' ng-repeat='i in children' ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
 				<img ng-src='{{i.image}}'/>
 			</div>
-			<div class='badge-placeholder'>
+			<div class='badge'>
 				<img ng-src='{{image}}'/>
 			</div>
 		</div>
