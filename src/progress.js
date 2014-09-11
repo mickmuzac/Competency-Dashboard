@@ -23,15 +23,23 @@ app.controller('BadgeCtrl', ['$scope', function($scope)
 
 	$scope.genGradient = function(comp){
 		var bgColor = 'rgba(255,255,255,0.6)';
-		var transition = 0;
-		return {
-			'background-image':
-				'linear-gradient( 0deg, {c}, {c} {p-}, {bg} {p+}, {bg} )'
-				.replace(/\{c\}/g, comp.color)
-				.replace(/\{p-\}/g, (comp.progress-transition)+'%')
-				.replace(/\{p\+\}/g, (comp.progress+transition)+'%')
-				.replace(/\{bg\}/g, bgColor)
-		};
+
+		if(comp.progress === 0){
+			return {'background-color': bgColor};
+		}
+		else if(comp.progress === 100){
+			return {'background-color': comp.color};
+		}
+		else {
+			return {
+				'background-image':
+					'linear-gradient( 0deg, {c}, {c} {p}, {bg} {p}, {bg} )'
+					.replace(/\{c\}/g, comp.color)
+					.replace(/\{p\}/g, comp.progress+'%')
+					.replace(/\{bg\}/g, 'transparent'),
+				'background-color': bgColor
+			}
+		}
 	};
 
 	$scope.incrementValue = function(comp, evt)

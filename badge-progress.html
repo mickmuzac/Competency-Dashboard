@@ -7,8 +7,9 @@
 	</head>
 	<body ng-app='badge-progress'>
 
-		<div class='progress cell' ng-controller='BadgeCtrl' ng-style='genGradient({color:color,progress:progress})'>
-			<div class='badge cell' ng-repeat='i in children' ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
+		<div class='progress cell' ng-controller='BadgeCtrl' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress})'>
+			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
+				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
 				<img ng-src='{{i.image}}'/>
 			</div>
 			<div class='badge'>
