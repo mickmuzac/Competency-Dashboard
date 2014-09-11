@@ -3,11 +3,11 @@ var app = angular.module('badge-progress', []);
 app.controller('BadgeCtrl', ['$scope', function($scope)
 {
 	$scope.children = [
-		{name: 'Strength', color: 'orange', image: 'img/Strength_Badge-Large.png', progress: 0},
-		{name: 'Endurance', color: 'firebrick', image: 'img/Endurance_Badge-Large.png', progress: 0},
-		{name: 'Mobility', color: 'orangered', image: 'img/Mobility_Badge-Large.png', progress: 0},
-		{name: 'Nutrition', color: 'limegreen', image: 'img/Nutrition_Badge-Large.png', progress: 0},
-		{name: 'Ethos', color: 'dodgerblue', image: 'img/Philosophy_Badge-Large.png', progress: 0}
+		{name: 'Strength', color: 'orange', image: 'img/Strength_Badge-Large.png', progress: 40},
+		{name: 'Endurance', color: 'firebrick', image: 'img/Endurance_Badge-Large.png', progress: 100},
+		{name: 'Mobility', color: 'orangered', image: 'img/Mobility_Badge-Large.png', progress: 20},
+		{name: 'Nutrition', color: 'limegreen', image: 'img/Nutrition_Badge-Large.png', progress: 80},
+		{name: 'Ethos', color: 'dodgerblue', image: 'img/Philosophy_Badge-Large.png', progress: 60}
 	];
 
 	$scope.name = 'Warrior Athlete';
@@ -33,7 +33,8 @@ app.controller('BadgeCtrl', ['$scope', function($scope)
 		else {
 			return {
 				'background-image':
-					'linear-gradient( 0deg, {c}, {c} {p}, {bg} {p}, {bg} )'
+					'linear-gradient( {dir}deg, {c}, {c} {p}, {bg} {p}, {bg} )'
+					.replace(/\{dir\}/g, comp.horiz ? 90 : 0)
 					.replace(/\{c\}/g, comp.color)
 					.replace(/\{p\}/g, comp.progress+'%')
 					.replace(/\{bg\}/g, 'transparent'),
