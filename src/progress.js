@@ -16,6 +16,7 @@ app.controller('BadgeCtrl', ['$scope', function($scope)
 	$scope.progress = 0;
 	$scope.horiz = false;
 	$scope.badgeStart = false;
+	$scope.transparency = 1;
 
 	$scope.$watchGroup(['children[0].progress','children[1].progress','children[2].progress','children[3].progress','children[4].progress'],
 		function(newVals, oldVals){
@@ -24,7 +25,7 @@ app.controller('BadgeCtrl', ['$scope', function($scope)
 	);
 
 	$scope.genGradient = function(comp){
-		var bgColor = 'rgba(255,255,255,1)';
+		var bgColor = 'rgba(255,255,255,'+$scope.transparency+')';
 
 		if(comp.progress === 0){
 			return {'background-color': bgColor};

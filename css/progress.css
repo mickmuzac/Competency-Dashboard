@@ -34,3 +34,7 @@ span {
 	font-weight: bold;
 	text-shadow: black 0px 0px 5px;
 }
+
+input {
+	max-width: 50px;
+}
