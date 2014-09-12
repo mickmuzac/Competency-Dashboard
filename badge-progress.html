@@ -6,47 +6,22 @@
 		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular.min.js'></script>
 		<script type='text/javascript' src='src/progress.js'></script>
 	</head>
-	<body ng-app='badge-progress'>
+	<body ng-app='badge-progress' ng-controller='BadgeCtrl'>
 
-		<div class='progress cell' ng-controller='BadgeCtrl' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress})'>
-			<div class='badge'>
+		<div class='progress cell' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:horiz})'>
+			<div class='badge' ng-show='badgeStart'>
 				<img ng-src='{{image}}'/>
 			</div>
 			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
 				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
 				<img ng-src='{{i.image}}'/>
 			</div>
-		</div>
-
-		<div class='progress cell' ng-controller='BadgeCtrl' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:true})'>
-			<div class='badge'>
-				<img ng-src='{{image}}'/>
-			</div>
-			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
-				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
-				<img ng-src='{{i.image}}'/>
-			</div>
-		</div>
-
-		<div class='progress cell' ng-controller='BadgeCtrl' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress})'>
-			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
-				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
-				<img ng-src='{{i.image}}'/>
-			</div>
-			<div class='badge'>
+			<div class='badge' ng-hide='badgeStart'>
 				<img ng-src='{{image}}'/>
 			</div>
 		</div>
 
-		<div class='progress cell' ng-controller='BadgeCtrl' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:true})'>
-			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
-				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
-				<img ng-src='{{i.image}}'/>
-			</div>
-			<div class='badge'>
-				<img ng-src='{{image}}'/>
-			</div>
-		</div>
-
+		<label><input type='checkbox' ng-model='horiz'/> Horizontal Progress?</label>
+		<label><input type='checkbox' ng-model='badgeStart'/> Rollup Badge At Beginning?</label>
 	</body>
 </html>
