@@ -1,0 +1,12 @@
+<div id='badge-progress' ng-controller='BadgeCtrl' class='progress cell' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:horiz})'>
+	<div class='badge' ng-show='badgeStart'>
+		<img ng-src='{{image}}'/>
+	</div>
+	<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
+		ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
+		<img ng-src='{{i.image}}'/>
+	</div>
+	<div class='badge' ng-hide='badgeStart'>
+		<img ng-src='{{image}}'/>
+	</div>
+</div>

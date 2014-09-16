@@ -1,0 +1,36 @@
+#badge-progress .cell {
+	box-shadow: 1px 1px 3px;
+	border-radius: 5px;
+}
+
+#badge-progress .progress {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	margin: 30px 10px;
+}
+
+#badge-progress .badge {
+	width: 100px;
+	height: 70px;
+	margin: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#badge-progress div.badge > img {
+	height: 90%;
+}
+
+#badge-progress span {
+	color: white;
+	font-weight: bold;
+	text-shadow: black 0px 0px 5px;
+}
+
+#badge-progress input {
+	max-width: 50px;
+}

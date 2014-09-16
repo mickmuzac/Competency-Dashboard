@@ -63,3 +63,5 @@ var noCM = function(e){
 	return false;
 };
 
+angular.bootstrap( document.querySelector('div#badge-progress'), ['badge-progress'] );
+
