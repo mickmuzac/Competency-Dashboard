@@ -35,7 +35,7 @@ class BadgeProgressXBlock(XBlock):
         html = self.resource_string("static/html/badgeprogress.html")
         frag = Fragment(html)
         frag.add_css(self.resource_string("static/css/badgeprogress.css"))
-        frag.add_javascript(self.resource_string("static/js/src/angular.min.js"))
+        frag.add_javascript(self.resource_string("static/js/src/angular.clean.js"))
         frag.add_javascript(self.resource_string("static/js/src/badgeprogress.js"))
         frag.initialize_js('BadgeProgressXBlock')
         return frag
