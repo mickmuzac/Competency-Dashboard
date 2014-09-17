@@ -62,8 +62,6 @@ class BadgeProgressXBlock(XBlock):
             ("BadgeProgressXBlock",
              """<vertical_demo>
                 <badgeprogress/>
-                <badgeprogress/>
-                <badgeprogress/>
                 </vertical_demo>
              """),
         ]
