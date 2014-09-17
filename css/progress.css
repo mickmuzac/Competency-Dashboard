@@ -11,8 +11,6 @@ div.progress {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
-	margin: 30px 10px;
 }
 
 div.badge {
