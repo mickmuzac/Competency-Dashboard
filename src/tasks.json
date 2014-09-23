@@ -1,8 +1,24 @@
 [
     {
-        "name": "Strength",
-        "color": "orange",
-        "image": "img/Strength_Badge-Large.png",
+        "name": "Ethos",
+        "color": "dodgerblue",
+        "image": "img/Philosophy_Badge-Large.png",
+		"tasks": [
+			"i4x://ADL/WA_101/problem/aa4fc7a719844f13827898df1cc1d3e5",
+			"i4x://ADL/WA_101/problem/df7551df16f34439b293ce6186ba6e7b",
+			"i4x://ADL/WA_101/problem/9b185c795b8f4c26adc5af52d387e245",
+			"i4x://ADL/WA_101/problem/a284c430893a4edf846c78bc073aa0ee",
+
+			"i4x://ADL/WA_101/problem/6121ed0545e74bf8ae622f1442d90eed",
+			"i4x://ADL/WA_101/problem/554aa8a08b5841ea8cc4b767f963a0ae",
+			"i4x://ADL/WA_101/problem/383f4dec2ac84a3fbdfd7c880261e3be",
+			"i4x://ADL/WA_101/problem/e2ba53c2f79241c395edef2955517d0d"
+		]
+    },
+    {
+        "name": "Mobility",
+        "color": "orangered",
+        "image": "img/Mobility_Badge-Large.png",
 		"tasks": [
 			
 		]
@@ -16,9 +32,9 @@
 		]
     },
     {
-        "name": "Mobility",
-        "color": "orangered",
-        "image": "img/Mobility_Badge-Large.png",
+        "name": "Strength",
+        "color": "orange",
+        "image": "img/Strength_Badge-Large.png",
 		"tasks": [
 			
 		]
@@ -27,14 +43,6 @@
         "name": "Nutrition",
         "color": "limegreen",
         "image": "img/Nutrition_Badge-Large.png",
-		"tasks": [
-			
-		]
-    },
-    {
-        "name": "Ethos",
-        "color": "dodgerblue",
-        "image": "img/Philosophy_Badge-Large.png",
 		"tasks": [
 			
 		]

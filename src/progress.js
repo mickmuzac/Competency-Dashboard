@@ -25,6 +25,26 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 		});
 
 
+	$scope.calculatePerformanceData = function()
+	{
+		var config = {
+			'method': 'GET',
+			'url': 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100/xAPI/statements', 
+			'headers': {'X-Experience-API-Version': '1.0.1', 'Authorization': 'Basic ZGFzaFJlcG9ydGluZzpSZXBvcnREYXRhQW5hbHl0aWNz'},
+			'responseType': 'json',
+			'params': {'agent': JSON.stringify({'account':{'homePage':'http://vm-edx','name':'vergenzs'}}), 'verb':'http://adlnet.gov/expapi/verbs/passed'}
+		};
+
+		$http(config).success(function success(data){
+			console.log(data);
+		})
+		.error(function(data){
+			console.log('Could not retrieve data from LRS:', data);
+		});
+
+		$scope.progress = $scope.children.reduce(function(old,cur){return old+cur.progress;}, 0) / $scope.children.length;
+	};
+
 	$scope.genGradient = function(comp)
 	{
 		var bgColor = 'rgba(255,255,255,'+$scope.transparency+')';
@@ -57,12 +77,6 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 		evt.stopPropagation();
 	};*/
-
-	$scope.calculatePerformanceData = function()
-	{
-
-		$scope.progress = $scope.children.reduce(function(old,cur){return old+cur.progress;}, 0) / $scope.children.length;
-	};
 
 }]);
 
