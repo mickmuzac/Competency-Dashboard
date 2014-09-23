@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Strength",
+        "color": "orange",
+        "image": "img/Strength_Badge-Large.png",
+		"tasks": [
+			
+		]
+    },
+    {
+        "name": "Endurance",
+        "color": "firebrick",
+        "image": "img/Endurance_Badge-Large.png",
+		"tasks": [
+			
+		]
+    },
+    {
+        "name": "Mobility",
+        "color": "orangered",
+        "image": "img/Mobility_Badge-Large.png",
+		"tasks": [
+			
+		]
+    },
+    {
+        "name": "Nutrition",
+        "color": "limegreen",
+        "image": "img/Nutrition_Badge-Large.png",
+		"tasks": [
+			
+		]
+    },
+    {
+        "name": "Ethos",
+        "color": "dodgerblue",
+        "image": "img/Philosophy_Badge-Large.png",
+		"tasks": [
+			
+		]
+    }
+]
