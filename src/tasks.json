@@ -20,7 +20,25 @@
         "color": "orangered",
         "image": "img/Mobility_Badge-Large.png",
 		"tasks": [
-			
+			"i4x://ADL/WA_101/problem/0027bf05cc13465db3bce495e19541ae",
+			"i4x://ADL/WA_101/problem/351dd4e6f4114014bb58aa5232d8cd64",
+
+			"i4x://ADL/WA_101/problem/7209796f1ad54a59b6a7cf30b5a9f157",
+			"i4x://ADL/WA_101/problem/48362f36cf6841fdb01053455fbec3ab",
+			"i4x://ADL/WA_101/problem/467235736e384e83bb5af43e14c24ab7",
+			"i4x://ADL/WA_101/problem/0847e514491940808807cb76c4611fe7",
+			"i4x://ADL/WA_101/problem/416bbe11bc804197ae596436cccf5e15",
+			"i4x://ADL/WA_101/problem/c13495aba7e540d3a61806988721154d",
+			"i4x://ADL/WA_101/problem/8f1b29574257464fa984e72490817b41",
+			"i4x://ADL/WA_101/problem/47438da184a84fbfbaaac46ce428d51e",
+			"i4x://ADL/WA_101/problem/658249f1b40d437194a26cdfada250cc",
+			"i4x://ADL/WA_101/problem/ff78fe0678ed483fae4e4e8fc7672b76",
+			"i4x://ADL/WA_101/problem/ec16642be04d45ac9d9d48aae182ce4f",
+			"i4x://ADL/WA_101/problem/c75f7f71dde744db8ef1302b09f2fb7d",
+			"i4x://ADL/WA_101/problem/eb0c0eca6d3d484aac96965d62dbade7",
+			"i4x://ADL/WA_101/problem/84ac5d80b26e4dbbbc1b1f1b196f8537",
+			"i4x://ADL/WA_101/problem/030405044e4f4bb8ab98a4b259f1bcee",
+			"i4x://ADL/WA_101/problem/55c14977cd5447fea8de54f0ab8c73c1"
 		]
     },
     {
@@ -28,7 +46,19 @@
         "color": "firebrick",
         "image": "img/Endurance_Badge-Large.png",
 		"tasks": [
-			
+			"i4x://ADL/WA_101/problem/cd45c83b6bf040cca62df1d47ccf7c3b",
+			"i4x://ADL/WA_101/problem/70c8f4fd6cd84b11b11a9d5654c155ce",
+			"i4x://ADL/WA_101/problem/71cb01af604640968e2aa52270538f8a",
+
+			"i4x://ADL/WA_101/problem/19128bfcfc364de0a65f24bfa82c10f7",
+			"i4x://ADL/WA_101/problem/2b40bcef416e4375bd98ab5181a21990",
+			"i4x://ADL/WA_101/problem/2548fcd1cd054a5f8026cb1bc304d323",
+			"i4x://ADL/WA_101/problem/89d0489bc9e048dd98fd6a11c595c8cb",
+			"i4x://ADL/WA_101/problem/804b218d7ad3426ea3806b7f8ba03c75",
+			"i4x://ADL/WA_101/problem/beadc59442be4642ac3653249ab1dd0c",
+			"i4x://ADL/WA_101/problem/fac0462a04be4043b20cfdeb69456061",
+			"i4x://ADL/WA_101/problem/3de5a58380b842a3a18a1ed938e336c8",
+			"i4x://ADL/WA_101/problem/59f0da12a9b3457a875442a8aa171b93"
 		]
     },
     {
@@ -36,7 +66,22 @@
         "color": "orange",
         "image": "img/Strength_Badge-Large.png",
 		"tasks": [
-			
+			"i4x://ADL/WA_101/problem/e1a069d58b4546d9955bccaa5c1de266",
+			"i4x://ADL/WA_101/problem/fd3d40c47c2842109565b414d5ef1c08",
+			"i4x://ADL/WA_101/problem/4e51cf85b97144cb8784326ab07d27ee",
+
+			"i4x://ADL/WA_101/problem/6c4204b8d40843648cf0f792b77f8fbb",
+			"i4x://ADL/WA_101/problem/e1e1a6de4ba84f9c8b255410a41d1258",
+			"i4x://ADL/WA_101/problem/ae10da3bc1e84616a8affb16e930abd2",
+			"i4x://ADL/WA_101/problem/ce80926904a441f8b1d6df43f8d89a07",
+			"i4x://ADL/WA_101/problem/5f5775b2042944299d86490610bdaf58",
+			"i4x://ADL/WA_101/problem/6eb73bd39c1b41ca82d9b154fadcd560",
+			"i4x://ADL/WA_101/problem/67129b212a4a4ac9846a98ffaac84ab0",
+			"i4x://ADL/WA_101/problem/de412e49e6434fecaa31ceda2b89e857",
+			"i4x://ADL/WA_101/problem/76d70f539d2f46db8fb28a2d4f216738",
+			"i4x://ADL/WA_101/problem/f9f114708c2145459365ec7a364a5d79",
+			"i4x://ADL/WA_101/problem/8db2996fc7ac42d6865757d43a1a3464",
+			"i4x://ADL/WA_101/problem/3863d85903784dca8b338301eb2e071e"
 		]
     },
     {
@@ -44,7 +89,28 @@
         "color": "limegreen",
         "image": "img/Nutrition_Badge-Large.png",
 		"tasks": [
-			
+			"i4x://ADL/WA_101/problem/f1e0f301a4534f97b6a1be5c915390ac",
+			"i4x://ADL/WA_101/problem/35686d7fba3c4d4893bc9bfaaff2836d",
+			"i4x://ADL/WA_101/problem/22bf7387ff394a5da3e2460529f590a6",
+			"i4x://ADL/WA_101/problem/cd3bc9d83c4b4fa79abdfccca3207fda",
+			"i4x://ADL/WA_101/problem/bef575a352cb447e86a1e7c01bac007c",
+
+			"i4x://ADL/WA_101/problem/33b50b0b5ab7456db32d6b42d8e2e851",
+			"i4x://ADL/WA_101/problem/7b5ef5450676490db3b7dceabdb5652b",
+			"i4x://ADL/WA_101/problem/c36509cc9add43e4aacf9eec16fe60ba",
+			"i4x://ADL/WA_101/problem/6143f2419b714080a756d8bd9d3e04c8",
+			"i4x://ADL/WA_101/problem/dcb27ba84cc143b19ad837e5518ab85d",
+			"i4x://ADL/WA_101/problem/21fd0ca4993b48c7a88aa548673b8053",
+			"i4x://ADL/WA_101/problem/79e7a705bf5644f8a0507e0c9cff7dd1",
+			"i4x://ADL/WA_101/problem/3b3fd4f9a6a2482ea1032acb46d74d25",
+			"i4x://ADL/WA_101/problem/3a85e93414304099ba65fdd85edba90d",
+			"i4x://ADL/WA_101/problem/5440e89ed81f4d94827055958c9cd9ee",
+			"i4x://ADL/WA_101/problem/a7ca8a24f0174c92bc9c86333b7a074b",
+			"i4x://ADL/WA_101/problem/16052601bf1340bb83829d8e6213df9e",
+			"i4x://ADL/WA_101/problem/a6cfa0fe881a44358174f159329f4c46",
+			"i4x://ADL/WA_101/problem/9a0640f655864286ba0c209b588e7266",
+
+			"i4x://ADL/WA_101/problem/e150ecbec170459b8f0f6aaacab41395"
 		]
     }
 ]

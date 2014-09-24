@@ -9,7 +9,7 @@
 	</head>
 	<body ng-app='badge-progress' ng-controller='BadgeCtrl'>
 
-		<div class='progress cell' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:horiz})'>
+		<div class='progress cell' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:horiz,tasks:children})'>
 			<div class='badge' ng-show='badgeStart'>
 				<img ng-src='{{image}}'/>
 			</div>

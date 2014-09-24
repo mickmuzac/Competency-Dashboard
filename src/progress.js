@@ -14,9 +14,11 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 	$http.get('src/tasks.json')
 		.success(function(data,status,headers,config)
 		{
-			for(var i=0; i<data.length; i++)
-				data[i].progress = 0;
-			
+			// initialize progress and append tasks to rollup badge
+			for(var i=0; i<data.length; i++){
+				data[i].progress = 0;		
+			}
+
 			$scope.children = data;
 			$scope.calculatePerformanceData();
 		})
@@ -35,24 +37,48 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 			'params': {'agent': JSON.stringify({'account':{'homePage':'http://vm-edx','name':'vergenzs'}}), 'verb':'http://adlnet.gov/expapi/verbs/passed'}
 		};
 
-		$http(config).success(function success(data){
+		$http(config).success(function success(data)
+		{
 			console.log(data);
+
+			for(var i=0; i<data.statements.length; i++)
+			{
+				var stmt = data.statements[i];
+				for(var j=0; j<$scope.children.length; j++)
+				{
+					if( $scope.children[j].tasks.indexOf(stmt.object.id) != -1 ){
+						$scope.children[j].progress++;
+					}
+
+				}
+			}
+
+			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress/i.tasks.length; }, 0);
+
+			if( data.more !== '' ){
+				config.url = 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100'+data.more;
+				$http(config)
+					.success(success)
+					.error(function(data){
+						console.log('Could not get more:', data);
+					});
+			}
 		})
 		.error(function(data){
 			console.log('Could not retrieve data from LRS:', data);
 		});
 
-		$scope.progress = $scope.children.reduce(function(old,cur){return old+cur.progress;}, 0) / $scope.children.length;
 	};
 
 	$scope.genGradient = function(comp)
 	{
 		var bgColor = 'rgba(255,255,255,'+$scope.transparency+')';
 
+
 		if(comp.progress === 0){
 			return {'background-color': bgColor};
 		}
-		else if(comp.progress === 100){
+		else if(comp.progress === comp.tasks.length){
 			return {'background-color': comp.color};
 		}
 		else {
@@ -61,7 +87,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 					'linear-gradient( {dir}deg, {c}, {c} {p}, {bg} {p}, {bg} )'
 					.replace(/\{dir\}/g, comp.horiz ? 90 : 0)
 					.replace(/\{c\}/g, comp.color)
-					.replace(/\{p\}/g, comp.progress+'%')
+					.replace(/\{p\}/g, Math.ceil(comp.progress/comp.tasks.length*100)+'%')
 					.replace(/\{bg\}/g, 'transparent'),
 				'background-color': bgColor
 			}
