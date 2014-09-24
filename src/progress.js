@@ -29,7 +29,8 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 	$scope.calculatePerformanceData = function()
 	{
-		var homepage = window.top.location.origin;
+		var homepage = /homepage=([^&]+)/.exec(window.location.search);
+		homepage = homepage? decodeURIComponent(homepage[1]) : null;
 		var username = /username=(\w+)/.exec(window.location.search);
 		username = username? username[1] : null;
 		var config = {
