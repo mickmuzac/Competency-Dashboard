@@ -29,12 +29,15 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 	$scope.calculatePerformanceData = function()
 	{
+		var homepage = window.top.location.origin;
+		var username = /username=(\w+)/.exec(window.location.search);
+		username = username? username[1] : null;
 		var config = {
 			'method': 'GET',
 			'url': 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100/xAPI/statements', 
 			'headers': {'X-Experience-API-Version': '1.0.1', 'Authorization': 'Basic ZGFzaFJlcG9ydGluZzpSZXBvcnREYXRhQW5hbHl0aWNz'},
 			'responseType': 'json',
-			'params': {'agent': JSON.stringify({'account':{'homePage':'http://vm-edx','name':'vergenzs'}}), 'verb':'http://adlnet.gov/expapi/verbs/passed'}
+			'params': {'agent': JSON.stringify({'account':{'homePage':homepage,'name':username}}), 'verb':'http://adlnet.gov/expapi/verbs/passed'}
 		};
 
 		$http(config).success(function success(data)
