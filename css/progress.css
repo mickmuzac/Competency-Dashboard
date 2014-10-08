@@ -8,7 +8,9 @@ div.progress {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	margin: 4px;
+	margin: 4px auto;
+
+	max-width: 850px;
 }
 
 div.badge {
