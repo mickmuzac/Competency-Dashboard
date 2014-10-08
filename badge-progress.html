@@ -9,11 +9,11 @@
 	</head>
 	<body ng-app='badge-progress' ng-controller='BadgeCtrl'>
 
-		<div class='progress cell' title='{{name}} ({{progress}}/100)' ng-style='genGradient({color:color,progress:progress,horiz:horiz,tasks:children})'>
+		<div class='progress cell' title='{{name}} ({{progress}}/{{tasksLength}})' ng-style='genGradient({color:color,progress:progress,horiz:horiz,tasksLength:tasksLength})'>
 			<div class='badge' ng-show='badgeStart'>
 				<img ng-src='{{image}}'/>
 			</div>
-			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/100)'
+			<div class='badge cell' ng-repeat='i in children' title='{{i.name}} ({{i.progress}}/{{i.tasks.length}})'
 				ng-style='genGradient(i)' ng-mousedown='incrementValue(i, $event)' oncontextmenu='noCM(event)'>
 				<img ng-src='{{i.image}}'/>
 			</div>

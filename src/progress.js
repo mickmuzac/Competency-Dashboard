@@ -32,7 +32,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 		var homepage = /homepage=([^&]+)/.exec(window.location.search);
 		homepage = homepage? decodeURIComponent(homepage[1]) : null;
 		var username = /username=(\w+)/.exec(window.location.search);
-		username = username? username[1] : null;
+		username = username? decodeURIComponent(username[1]) : null;
 		var config = {
 			'method': 'GET',
 			'url': 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100/xAPI/statements', 
@@ -58,6 +58,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 			}
 
 			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress/i.tasks.length; }, 0);
+			$scope.tasksLength = $scope.children.reduce(function(sum,i){ return sum+i.tasks.length; }, 0);
 
 			if( data.more !== '' ){
 				config.url = 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100'+data.more;
@@ -91,7 +92,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 					'linear-gradient( {dir}deg, {c}, {c} {p}, {bg} {p}, {bg} )'
 					.replace(/\{dir\}/g, comp.horiz ? 90 : 0)
 					.replace(/\{c\}/g, comp.color)
-					.replace(/\{p\}/g, Math.ceil(comp.progress/comp.tasks.length*100)+'%')
+					.replace(/\{p\}/g, Math.ceil(comp.progress/ (comp.tasks ? comp.tasks.length : comp.tasksLength)*100)+'%')
 					.replace(/\{bg\}/g, 'transparent'),
 				'background-color': bgColor
 			}
