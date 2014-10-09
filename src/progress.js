@@ -43,8 +43,6 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 		$http(config).success(function success(data)
 		{
-			console.log(data);
-
 			for(var i=0; i<data.statements.length; i++)
 			{
 				var stmt = data.statements[i];
@@ -57,7 +55,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 				}
 			}
 
-			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress/i.tasks.length; }, 0);
+			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress; }, 0);
 			$scope.tasksLength = $scope.children.reduce(function(sum,i){ return sum+i.tasks.length; }, 0);
 
 			if( data.more !== '' ){
@@ -83,7 +81,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 		if(comp.progress === 0){
 			return {'background-color': bgColor};
 		}
-		else if(comp.progress === comp.tasks.length){
+		else if(comp.progress === (comp.tasks ? comp.tasks.length : comp.tasksLength)){
 			return {'background-color': comp.color};
 		}
 		else {
