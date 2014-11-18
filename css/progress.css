@@ -55,9 +55,9 @@ div.badge > img {
 }
 
 span {
-	color: white;
+	/*color: white;
 	font-weight: bold;
-	text-shadow: black 0px 0px 5px;
+	text-shadow: black 0px 0px 5px;*/
 }
 
 input {

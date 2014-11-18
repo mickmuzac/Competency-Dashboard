@@ -24,7 +24,9 @@
 				<img ng-src='{{image}}'/>
 			</div>
 		</div>
-		<p ng-show='dataReady' class="text">In order to receive this badge, you need to complete all of the activities (except the optional Discussion Forum) and pass the quiz. 
-		The progress dashboard shows you how close you are to completion.</p>
+		<p ng-show='dataReady && badgeCompletion < 100' class="text">In order to receive this badge, you need to complete all of the activities (except the optional Discussion Forum) and pass the quiz. 
+		You have completed {{badgeCompletion}}% of the activities for the {{currentBadge}} badge and {{totalCompletion}}% for the Warrior Athlete badge.</p>
+		<p ng-show='dataReady && badgeCompletion >= 100' class="text"><span style="font-weight:bold;">Congratulations!</span> You have earned the {{currentBadge}} badge.<br/>
+		You have completed {{totalCompletion}}% of the activities for the Warrior Athlete badge.</p>
 	</body>
 </html>

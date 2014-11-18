@@ -10,7 +10,6 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 	$scope.horiz = false;
 	$scope.badgeStart = true;
 	$scope.dataReady = false;
-	$scope.showSingleBadge = Array.isArray(window.location.pathname.match(/single\-progress/i));
 	$scope.transparency = 1;
 
 	$http.get('src/tasks.json')
@@ -60,21 +59,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress; }, 0);
 			$scope.tasksLength = $scope.children.reduce(function(sum,i){ return sum+i.tasks.length; }, 0);
-
-			//if showing single badge, then remove badges that are not current
-			if($scope.showSingleBadge){
-				var currentBadge = /currentBadge=(\w+)/.exec(window.location.search);
-				currentBadge = currentBadge? decodeURIComponent(currentBadge[1]) : null;
-				
-				for(var i=0; i < $scope.children.length; i++)
-				{
-					if($scope.children[i].name == currentBadge){
-						$scope.children = [$scope.children[i]];
-						break;
-					}
-				}
-			}
-
+			
 			if( data.more !== '' ){
 				config.url = 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100'+data.more;
 				$http(config)
@@ -84,6 +69,23 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 					});
 			}
 			else{
+				//if showing single badge, then remove badges that are not current
+				if(Array.isArray(window.location.pathname.match(/single\-progress/i))){
+					var currentBadge = /currentBadge=(\w+)/.exec(window.location.search);
+					currentBadge = currentBadge? decodeURIComponent(currentBadge[1]) : null;
+					
+					for(var i=0;i < $scope.children.length; i++)
+					{
+						if($scope.children[i].name == currentBadge){
+							$scope.children = [$scope.children[i]];
+							break;
+						}
+					}
+				}
+				
+				$scope.totalCompletion = Math.ceil($scope.progress / $scope.tasksLength);
+				$scope.currentBadge = currentBadge;
+				$scope.badgeCompletion = getCompPercentage($scope.children[0]);
 				$scope.dataReady = true;
 			}
 		})
@@ -111,12 +113,16 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 					'linear-gradient( {dir}deg, {c}, {c} {p}, {bg} {p}, {bg} )'
 					.replace(/\{dir\}/g, comp.horiz ? 90 : 0)
 					.replace(/\{c\}/g, comp.color)
-					.replace(/\{p\}/g, Math.ceil(comp.progress/ (comp.tasks ? comp.tasks.length : comp.tasksLength)*100)+'%')
+					.replace(/\{p\}/g, getCompPercentage(comp)+'%')
 					.replace(/\{bg\}/g, 'transparent'),
 				'background-color': bgColor
 			}
 		}
 	};
+	
+	function getCompPercentage(comp){
+		return Math.min(Math.ceil(comp.progress / (comp.tasks ? comp.tasks.length : comp.tasksLength)*100), 100);
+	}
 
 	/*$scope.incrementValue = function(comp, evt)
 	{
