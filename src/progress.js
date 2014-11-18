@@ -1,4 +1,4 @@
-var app = angular.module('badge-progress', []);
+var app = angular.module('badge-progress', ['angularSpinner']);
 
 app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 {
@@ -68,6 +68,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 			}
 		})
 		.error(function(data){
+			$scope.children.splice(1);
 			console.log('Could not retrieve data from LRS:', data);
 		});
 
