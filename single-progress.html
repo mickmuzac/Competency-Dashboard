@@ -9,9 +9,9 @@
 		<script type='text/javascript' src='lib/angular-spinner.min.js'></script>
 		<script type='text/javascript' src='src/progress.js'></script>
 	</head>
-	<body ng-app='badge-progress' ng-controller='BadgeCtrl'>
+	<body ng-app='badge-progress' ng-controller='BadgeCtrl' class="singleBody">
+		<div ng-hide='dataReady' us-spinner="{radius:20, width:7, length: 0, lines: 7}"></div>
 		<div class='progress cell singleProgress' title='{{name}} ({{progress}}/{{tasksLength}})' ng-style='genGradient({color:color,progress:progress,horiz:horiz,tasksLength:tasksLength})'>
-			<div ng-hide='dataReady' us-spinner="{radius:20, width:7, length: 0, lines: 7}"></div>
 			<div class='badge' ng-show='badgeStart && dataReady'>
 				<img ng-src='{{image}}'/>
 			</div>
@@ -24,5 +24,7 @@
 				<img ng-src='{{image}}'/>
 			</div>
 		</div>
+		<p ng-show='dataReady' class="text">In order to receive this badge, you need to complete all of the activities (except the optional Discussion Forum) and pass the quiz. 
+		The progress dashboard shows you how close you are to completion.</p>
 	</body>
 </html>

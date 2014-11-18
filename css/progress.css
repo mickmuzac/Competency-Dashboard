@@ -1,3 +1,24 @@
+body{
+	padding: 0 20px;
+}
+
+.text{
+	text-align: left;
+	width: 90%;
+	padding-left: 30px;
+	margin-bottom: 1.41575em;
+	color: #4C4C4C;
+	outline-color: #4C4C4C;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.6em !important;
+}
+
+.singleBody{
+	width: 100%;
+	margin: 0 auto;
+}
+
 .cell {
 	box-shadow: 1px 1px 3px;
 	border-radius: 5px;
@@ -11,10 +32,12 @@ div.progress, div.singleProgress {
 	margin: 4px auto;
 
 	max-width: 850px;
-	position: relative;
 }
 div.singleProgress{
+	min-width: 200px;
 	max-width: 300px;
+	float: left;
+	margin: 0 25px 10px 0;
 }
 
 div.badge {
@@ -39,7 +62,4 @@ span {
 
 input {
 	max-width: 50px;
-}
-.spinner{
-	top: 45px !important;
 }
