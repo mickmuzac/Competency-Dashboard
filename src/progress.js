@@ -35,7 +35,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 		username = username? decodeURIComponent(username[1]) : null;
 		var config = {
 			'method': 'GET',
-			'url': 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100/xAPI/statements', 
+			'url': 'http://adlx.adlnet.gov:8100/xAPI/statements', 
 			'headers': {'X-Experience-API-Version': '1.0.1', 'Authorization': 'Basic ZGFzaFJlcG9ydGluZzpSZXBvcnREYXRhQW5hbHl0aWNz'},
 			'responseType': 'json',
 			'params': {'agent': JSON.stringify({'account':{'homePage':homepage,'name':username}}), 'verb':'http://adlnet.gov/expapi/verbs/passed'}
