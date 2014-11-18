@@ -9,6 +9,8 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 
 	$scope.horiz = false;
 	$scope.badgeStart = true;
+	$scope.dataReady = false;
+	$scope.showSingleBadge = Array.isArray(window.location.pathname.match(/single\-progress/i));
 	$scope.transparency = 1;
 
 	$http.get('src/tasks.json')
@@ -33,6 +35,7 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 		homepage = homepage? decodeURIComponent(homepage[1]) : null;
 		var username = /username=(\w+)/.exec(window.location.search);
 		username = username? decodeURIComponent(username[1]) : null;
+		
 		var config = {
 			'method': 'GET',
 			'url': 'http://adlx.adlnet.gov:8100/xAPI/statements', 
@@ -58,6 +61,20 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 			$scope.progress = $scope.children.reduce(function(sum,i){ return sum+i.progress; }, 0);
 			$scope.tasksLength = $scope.children.reduce(function(sum,i){ return sum+i.tasks.length; }, 0);
 
+			//if showing single badge, then remove badges that are not current
+			if($scope.showSingleBadge){
+				var currentBadge = /currentBadge=(\w+)/.exec(window.location.search);
+				currentBadge = currentBadge? decodeURIComponent(currentBadge[1]) : null;
+				
+				for(var i=0; i < $scope.children.length; i++)
+				{
+					if($scope.children[i].name == currentBadge){
+						$scope.children = [$scope.children[i]];
+						break;
+					}
+				}
+			}
+
 			if( data.more !== '' ){
 				config.url = 'http://ec2-54-85-28-165.compute-1.amazonaws.com:8100'+data.more;
 				$http(config)
@@ -66,9 +83,12 @@ app.controller('BadgeCtrl', ['$scope','$http', function($scope, $http)
 						console.log('Could not get more:', data);
 					});
 			}
+			else{
+				$scope.dataReady = true;
+			}
 		})
 		.error(function(data){
-			$scope.children.splice(1);
+			
 			console.log('Could not retrieve data from LRS:', data);
 		});
 

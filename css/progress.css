@@ -3,13 +3,17 @@
 	border-radius: 5px;
 }
 
-div.progress {
+div.progress, div.singleProgress {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
 	margin: 4px auto;
 
+	max-width: 850px;
+	position: relative;
+}
+div.singleProgress{
 	max-width: 300px;
 }
 
@@ -35,4 +39,7 @@ span {
 
 input {
 	max-width: 50px;
+}
+.spinner{
+	top: 45px !important;
 }
